@@ -19,7 +19,6 @@ Chat bot for businesses based on LLMs.
 * Easy to train
 * Fast response time
 * Not talking about anything else than business
-* Can answer questions about products
 
 ### Talking requirements
 * Answering questions about products
