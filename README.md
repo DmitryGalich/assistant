@@ -1,65 +1,66 @@
-# Assistant
+# Telegram LLM Chat Bot
 
-Chat bot for businesses based on LLMs.
+A Golang-based Telegram bot that integrates with an LLM (Language Learning Model) for chat functionality. This bot is containerized using Docker and can be deployed using Docker Compose.
 
 ## Features
-- Ability of adding new info about products
-- Communicating with customers for helping to with products choice
-- Sending notifications about new orders
 
-## Running with Docker
+- Telegram bot integration
+- Placeholder for LLM integration
+- Docker containerization
+- Graceful shutdown handling
 
-### Prerequisites
-- Docker and Docker Compose installed on your system
-- At least 10GB of RAM (as per model requirements)
+## Prerequisites
 
-### Setup and Run
-1. Download the model file:
+- Docker and Docker Compose installed
+- A Telegram Bot Token (obtained from [@BotFather](https://t.me/BotFather))
+- (Optional) API key for your preferred LLM service
+
+## Setup
+
+1. Clone this repository
+2. Create a `.env` file based on the `.env.example` template:
+   ```bash
+   cp .env.example .env
    ```
-   mkdir -p models/saiga_7b_ggml
-   # Download the model file to models/saiga_7b_ggml/ggml-model-q4_1.bin
-   # You can get it from https://huggingface.co/IlyaGusev/saiga_7b_ggml
+3. Edit the `.env` file and add your Telegram Bot Token:
    ```
-
-2. Build and start the Docker container:
+   TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
    ```
-   docker-compose up --build
-   ```
-   Note: The first build may take some time as it compiles the llama-cpp-python package from source.
+4. (Optional) Add any LLM API credentials if you're integrating with a specific service
 
-3. Interact with the assistant through the terminal
+## Running the Bot
 
-### Configuration
-- You can modify environment variables in the docker-compose.yml file
-- Model parameters can be adjusted in the Dockerfile CMD line
-- Python dependencies are managed in requirements.txt
+To start the bot:
 
-### Troubleshooting
-If you encounter build issues with llama-cpp-python:
-- The Dockerfile includes necessary build dependencies (build-essential, cmake)
-- You can adjust CMAKE_ARGS in the Dockerfile for specific compilation options
+```bash
+docker-compose up -d
+```
 
-## Components
-- [LLM](#llm)
-- [Tool for connecting with social media](#social-media)
+To view logs:
 
-## LLM
+```bash
+docker-compose logs -f
+```
 
-### Requirements
-* Open source
-* Fluent russian language
-* Easy to train
-* Fast response time
-* Not talking about anything else than business
+To stop the bot:
 
-### Talking requirements
-* Answering questions about products
-* Responding in a friendly and helpful manner
-* Recommending products based on user's preferences
-* Asking for more information if needed (e.g. size, color)
-* Providing links to product pages or other relevant resources
+```bash
+docker-compose down
+```
 
-## Social media
-  ### Telegram
-  ### Whatsapp
-  ### Instagram
+## Customizing LLM Integration
+
+The current implementation includes a placeholder function `processMessageWithLLM` that should be replaced with actual LLM API integration code. Modify this function in `main.go` to connect to your preferred LLM service.
+
+## Commands
+
+The bot currently supports the following commands:
+
+- `/start` - Introduces the bot
+- `/help` - Shows help information
+
+All other messages are processed through the LLM integration.
+
+## License
+
+[MIT](LICENSE)

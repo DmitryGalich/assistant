@@ -1,36 +1,32 @@
-FROM python:3.10-slim
+FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    git-lfs \
-    build-essential \
-    cmake \
-    wget \
-    && rm -rf /var/lib/apt/lists/*
+# Copy go.mod and go.sum files
+COPY go.mod ./
 
-# Copy requirements first for better layer caching
-COPY requirements.txt /app/
+# Download dependencies
+RUN go mod download
 
-# Install Python dependencies with specific build options for llama-cpp-python
-ENV CMAKE_ARGS="-DLLAMA_CUBLAS=OFF"
-ENV FORCE_CMAKE=1
-RUN pip install --no-cache-dir --upgrade pip setuptools wheel
-RUN pip install --no-cache-dir -r requirements.txt --verbose
+# Copy the source code
+COPY . .
 
-# Copy application code
-COPY . /app/
+RUN go get telegram-llm-bot
 
-# Download the model (if not already included in the repository)
-# Uncomment and modify the following lines if you need to download the model
-# RUN mkdir -p /app/models/saiga_7b_ggml
-# RUN cd /app/models/saiga_7b_ggml && \
-#     wget https://huggingface.co/IlyaGusev/saiga_7b_ggml/resolve/main/ggml-model-q4_1.bin
+# Build the application
+RUN CGO_ENABLED=0 GOOS=linux go build -o /telegram-bot
 
-# Set environment variables
-ENV PYTHONUNBUFFERED=1
 
-# Command to run the application
-CMD ["python", "models/saiga_7b_ggml/interact_llamacpp.py", "models/saiga_7b_ggml/ggml-model-q4_1.bin"]
+# Use a smaller image for the final container
+FROM alpine:latest
+
+# Install ca-certificates for HTTPS requests
+RUN apk --no-cache add ca-certificates
+
+WORKDIR /root/
+
+# Copy the binary from the builder stage
+COPY --from=builder /telegram-bot .
+
+# Command to run the executable
+CMD ["./telegram-bot"]

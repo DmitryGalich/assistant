@@ -1,13 +1,15 @@
+version: '3.8'
+
 services:
-  assistant:
+  telegram-bot:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      # Mount the models directory to avoid having to download the model each time
-      - ./models:/app/models
-    stdin_open: true  # Keep STDIN open
-    tty: true         # Allocate a pseudo-TTY
+    container_name: telegram-llm-bot
     restart: unless-stopped
     environment:
-      - PYTHONUNBUFFERED=1
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - DEBUG=${DEBUG:-false}
+    # Add any other environment variables your LLM integration might need
+    # - LLM_API_KEY=${LLM_API_KEY}
+    # - LLM_API_URL=${LLM_API_URL}
