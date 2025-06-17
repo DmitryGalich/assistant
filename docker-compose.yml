@@ -1,13 +1,5 @@
 services:
-  assistant:
+  saiga: 
     build:
-      context: .
+      context: saiga
       dockerfile: Dockerfile
-    volumes:
-      # Mount the models directory to avoid having to download the model each time
-      - ./models:/app/models
-    stdin_open: true  # Keep STDIN open
-    tty: true         # Allocate a pseudo-TTY
-    restart: unless-stopped
-    environment:
-      - PYTHONUNBUFFERED=1
