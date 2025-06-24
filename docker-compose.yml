@@ -4,6 +4,8 @@ services:
   python-gpu-app:
     build: ./agent
     runtime: nvidia
+    stdin_open: true
+    tty: true
     deploy:
       resources:
         reservations:
