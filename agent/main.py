@@ -1,26 +1,41 @@
-import torch
-import time
+import fire
+from llama_cpp import Llama
 
-# Проверяем наличие GPU
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Using device: {device}")
+SYSTEM_PROMPT = "Ты — Сайга, русскоязычный автоматический ассистент. Ты разговариваешь с людьми и помогаешь им."
 
-# Размер матрицы (можно увеличить для большей нагрузки)
-N = 10000
+def interact(
+    model_path,
+    n_ctx=8192,
+    top_k=30,
+    top_p=0.9,
+    temperature=0.6,
+    repeat_penalty=1.1,
+    n_gpu_layers=-1
+):
+    model = Llama(
+        model_path=model_path,
+        n_ctx=n_ctx,
+        n_parts=1,
+        n_gpu_layers=n_gpu_layers,
+        verbose=True,
+    )
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+    while True:
+        user_message = input("User: ")
+        messages.append({"role": "user", "content": user_message})
+        for part in model.create_chat_completion(
+            messages,
+            temperature=temperature,
+            top_k=top_k,
+            top_p=top_p,
+            repeat_penalty=repeat_penalty,
+            stream=True,
+        ):
+            delta = part["choices"][0]["delta"]
+            if "content" in delta:
+                print(delta["content"], end="", flush=True)
+        print()
 
-# Создаём две случайные матрицы и перемещаем их на GPU
-a = torch.randn((N, N), device=device)
-b = torch.randn((N, N), device=device)
 
-# Засекаем время
-start = time.time()
-
-# Матричное умножение на GPU
-for i in range(10):  # Несколько итераций для постоянной нагрузки
-    c = torch.matmul(a, b)
-
-# Синхронизируем, чтобы убедиться, что вычисления завершены
-torch.cuda.synchronize()
-end = time.time()
-
-print(f"Matrix multiplication done on GPU in {end - start:.2f} seconds")
+if __name__ == "__main__":
+    fire.Fire(interact)
