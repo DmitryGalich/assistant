@@ -1,1 +1,5 @@
-Raw using llama-cpp-python direct installed by pip
+```
+pip install llama-cpp-python
+```
+
+Raw using llama-cpp-python
