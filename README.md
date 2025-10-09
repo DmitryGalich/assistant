@@ -1,6 +1,8 @@
 ## Windows 11
 * Install miniconda
 * Open Anaconda PowerShell Prompt
-* ```cd ${project_path}```
-* ```pip install langchain llama-cpp-python```
+* ```conda create --name ${NAME}```
+* ```conda activate ${NAME}```
+* ```pip install ${PACKAGE_NAME}```
+* ```code``` - open vscode
 
