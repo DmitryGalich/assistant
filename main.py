@@ -3,16 +3,24 @@ from langchain.agents import create_agent
 
 def main():
     model_path = "D:\models\saiga_yandexgpt_8b.Q4_K_M.gguf"
- 
-    llm = LlamaCpp(
+    system_prompt = ""
+
+    with open('system_prompt.txt', 'r', encoding='utf-8') as file:
+        system_prompt = file.read()
+
+
+    model = LlamaCpp(
         model_path=model_path,
-        temperature=0.75,
-        max_tokens=2000,
-        n_ctx=4096,
-        verbose=True,
+        # temperature=0.75,
+        max_tokens=200,
+        n_ctx=8192,
+        # verbose=True,
+        n_threads = 6,
+        n_threads_batch = 6,
     )
 
-    agent = create_agent(llm)
+    agent = create_agent(model = model,
+                         system_prompt=system_prompt)
 
     while True:
         user_input = input("You: ")
