@@ -1,0 +1,13 @@
+name: assistant
+services:
+  llm_handler:
+    build: llm_handler
+    container_name: llm_handler
+    depends_on:
+      - llm_db
+    volumes:
+      - ./llm_handler/:/app
+
+  llm_db:
+    container_name: llm_db
+    image: postgres:13
