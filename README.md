@@ -10,6 +10,8 @@
 
 * Install packages in this virtual envirenment
 ```
+    conda install -c conda-forge cuda-toolkit
+    $env:CMAKE_ARGS="-DGGML_CUDA=on"; pip install llama-cpp-python // for using GPU
     pip install --pre -U langchain // Alpha version of 1.0.0
     pip install langchain_community
 ```
