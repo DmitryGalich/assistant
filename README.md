@@ -1,23 +1,17 @@
 ## Windows 11
+
+#### Create env
 * Install miniconda
 * Open Anaconda PowerShell Prompt
-
 * Create and open virtual envirenment
 ```
     conda create --name ${NAME}
     conda activate ${NAME}
+    pip install llama-cpp-python langchain langchain_community
+    code ${PROJECT_PATH}
 ```
-
-* Install packages in this virtual envirenment
+#### Remove env
 ```
-    conda install -c conda-forge cuda-toolkit
-    $env:CMAKE_ARGS="-DGGML_CUDA=on"; pip install llama-cpp-python // for using GPU
-    pip install --pre -U langchain // Alpha version of 1.0.0
-    pip install langchain_community
+    conda deactivate ${NAME}
+    conda remove --name ${NAME} --all
 ```
-
-* Open vscode in virtual env
-```
-    code
-```
-
