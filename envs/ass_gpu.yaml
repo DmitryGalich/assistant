@@ -1,0 +1,29 @@
+name: ass_gpu
+channels:
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+  - cuda-toolkit=12.3
+  - cmake=3.15
+  - setuptools
+  - wheel
+  - git
+
+  - pip:
+      - langchain==1.0.3
+      - langchain-community==0.3.31
+      - langchain-core==1.0.2
+      - langchainhub==0.1.21
+      - transformers
+      - sentencepiece
+      - accelerate
+      - numpy
+      - tqdm
+      - pyyaml
+      - jinja2
+
+      - "git+https://github.com/abetlen/llama-cpp-python.git@v0.3.15#subdirectory=."
