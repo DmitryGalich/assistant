@@ -20,10 +20,10 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN pip install langchain===1.0.3
 RUN pip install langchain-community===0.4.1
 
-# Models downloading
-RUN pip install huggingface_hub[cli]
-# # TODO: SECURE TOKEN
-RUN hf download DmitryGalich/saiga_yandexgpt_8b.Q4_K_M --token=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 --local-dir /model_handler/models
+# # Models downloading
+# RUN pip install huggingface_hub[cli]
+# # # TODO: SECURE TOKEN
+# RUN hf download DmitryGalich/saiga_yandexgpt_8b.Q4_K_M --token=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 --local-dir /model_handler/models
 
 # llama-cpp-python for GPU
 ENTRYPOINT ["tools/entrypoint.sh"]
