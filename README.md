@@ -1,3 +1,4 @@
-## Model module
+# Assistant
 
-[Virtual envirenment](envs/README.md)
+## Services
+* [Model handler](model_handler/README.md)
