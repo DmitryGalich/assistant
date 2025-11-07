@@ -13,10 +13,11 @@ def main():
     model = LlamaCpp(
         model_path=model_path,
         temperature=0.1,
+        n_ctx = 2000,
+        repeat_penalty = 1.1,
         max_tokens=2000,
         n_gpu_layers=-1,
         stop=["Human:"],
-        stream=True,
     )
 
     agent = create_agent(model=model, system_prompt=system_prompt)
