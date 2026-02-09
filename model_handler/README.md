@@ -1,9 +1,5 @@
 # Model handler 
 
-## LLama cpp python
-
-File ```tools/entrypoint.sh``` has command for installation ```llama-cpp-python``` with CUDA support
-
 ## Development
 
 ### Copying model
