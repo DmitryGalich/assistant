@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
+FROM nvidia/cuda:12.1.1-devel-ubuntu22.04
 
 WORKDIR /model_handler
 COPY . /model_handler
@@ -11,12 +11,11 @@ RUN apt update && apt install -y \
     ninja-build \
     cmake \
     git \
-    wget 
+    curl \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
     
 RUN ln -s /usr/bin/python3 /usr/bin/python
-
-# Need to Langchain
-RUN pip install llama-cpp-python===0.3.16
 
 # Langchain
 RUN pip install langchain===1.2.0

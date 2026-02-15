@@ -34,7 +34,7 @@ def main():
 
     input_object = {
         "messages": [
-            {"role": "user", "content": "what is the current weather in krasnodar?"}
+            {"role": "user", "content": "какая погода в краснодаре?"}
         ]
     }
     result = agent.invoke(input_object)
