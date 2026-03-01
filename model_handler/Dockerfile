@@ -29,6 +29,7 @@ RUN apt install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
     
+
 # Langchain
 RUN pip install langchain===1.2.0
 RUN pip install langchain-community===0.4.1
