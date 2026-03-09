@@ -23,14 +23,14 @@ from deepagents import create_deep_agent
 #     return f"ИДИ НАХУЙ"
 
 def main():
-    model_path = r"model_handler/models/meta-llama-3.1-8b-instruct-q6_k.gguf"
+    model_path = r"model_handler/models/Meta-Llama-3.1-8B-Instruct-Q5_K_M.gguf"
     llm = ChatLlamaCpp(
         model_path=model_path,
         temperature=0,
         n_gpu_layers=-1,
         verbose=True,
         f16_kv=True,
-        n_ctx = 10000,
+        n_ctx = 6379,
     )
 
 
