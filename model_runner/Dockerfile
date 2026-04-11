@@ -16,12 +16,10 @@ ENV CUDA_HOME=/usr/local/cuda
 ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs:$LIBRARY_PATH
 
-# Installing llama.cpp
-# RUN git clone https://github.com/ggml-org/llama.cpp && \
-#     cd llama.cpp && \
-#     cmake -B build -DGGML_CUDA=ON -DCMAKE_EXE_LINKER_FLAGS="-Wl,--allow-shlib-undefined" && \
-#     cmake --build build -j 12
+# Cloning llama.cpp
+# RUN git clone https://github.com/ggml-org/llama.cpp 
 
+# Installing llama.cpp
 RUN cd llama.cpp && \
     cmake -B build -DGGML_CUDA=ON -DCMAKE_EXE_LINKER_FLAGS="-Wl,--allow-shlib-undefined" && \
     cmake --build build -j 12
@@ -30,7 +28,6 @@ RUN cd llama.cpp && \
 # # TODO: SECURE TOKEN
 # RUN hf download DmitryGalich/qwen2.5-7b-instruct-q4_k_m --token=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 --local-dir /model_runner/models
 
-# Запуск сервера
 CMD ["./llama.cpp/build/bin/llama-server", \
      "-m", "models/qwen2.5-7b-instruct-q4_k_m.gguf", \
      "-c", "650", \
