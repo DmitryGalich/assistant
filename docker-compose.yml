@@ -16,16 +16,11 @@ services:
               count: all
               capabilities: [gpu]
 
-  # model_handler:
-  #   build: model_handler
-  #   container_name: model_handler
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - driver: nvidia
-  #             count: all
-  #             capabilities: [gpu]
+  model_handler:
+    build: model_handler
+    container_name: model_handler
+    networks:
+      - model_network
 
 networks:
   model_network:

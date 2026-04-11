@@ -4,6 +4,9 @@ Module for only running LLM
 
 ## Development
 
+### Running
+```docker compose up -d model_runner```
+
 ### Copying model
 Copy model into container by hands:
 ```
