@@ -1,3 +1,160 @@
+{
+  "messages": [
+    {
+      "type": "HumanMessage",
+      "content": "какая погода в краснодарчике?",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "id": "846eeb64-2069-47dc-a55d-47710d7c30b8"
+    },
+    {
+      "type": "AIMessage",
+      "content": "",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 37,
+          "prompt_tokens": 234,
+          "total_tokens": 271,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 0
+          }
+        },
+        "model_provider": "openai",
+        "model_name": "qwen2.5-7b-instruct-q4_k_m.gguf",
+        "system_fingerprint": "b8720-d12cc3d1c",
+        "id": "chatcmpl-UlBWVbviCEr1n3nwbbhSu5VyMVdNzQmO",
+        "finish_reason": "tool_calls",
+        "logprobs": null
+      },
+      "id": "lc_run--019d7d4e-8f14-7ef1-9b99-759bdc917b78-0",
+      "tool_calls": [
+        {
+          "name": "get_current_weather",
+          "args": {
+            "location": "Краснодар",
+            "unit": "градусы Цельсия"
+          },
+          "id": "MGhtyBs8vQXn63i3I9Gq30q9xoX72bij",
+          "type": "tool_call"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 234,
+        "output_tokens": 37,
+        "total_tokens": 271,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {}
+      }
+    },
+    {
+      "type": "ToolMessage",
+      "content": "Актуальная погода в Краснодар - это 999999 градусы Цельсия",
+      "name": "get_current_weather",
+      "id": "6748d7e1-2399-4b98-b6e3-5c93d7a7e87b",
+      "tool_call_id": "MGhtyBs8vQXn63i3I9Gq30q9xoX72bij"
+    },
+    {
+      "type": "AIMessage",
+      "content": "Извините, кажется, произошла ошибка в ответе погоды. Попробую снова получить актуальную информацию о погоде в Краснодаре.\n",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 79,
+          "prompt_tokens": 319,
+          "total_tokens": 398,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 270
+          }
+        },
+        "model_provider": "openai",
+        "model_name": "qwen2.5-7b-instruct-q4_k_m.gguf",
+        "system_fingerprint": "b8720-d12cc3d1c",
+        "id": "chatcmpl-PpwHYxbSNgWmesnSXOT7Hecx1amiSZOc",
+        "finish_reason": "tool_calls",
+        "logprobs": null
+      },
+      "id": "lc_run--019d7d4e-951e-7940-8d1c-03defeb3022e-0",
+      "tool_calls": [
+        {
+          "name": "get_current_weather",
+          "args": {
+            "location": "Краснодар",
+            "unit": "градусы Цельсия"
+          },
+          "id": "QvWgIbzkgT8Lj7ImpcVEO2qZyzf1bu6i",
+          "type": "tool_call"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 319,
+        "output_tokens": 79,
+        "total_tokens": 398,
+        "input_token_details": {
+          "cache_read": 270
+        },
+        "output_token_details": {}
+      }
+    },
+    {
+      "type": "ToolMessage",
+      "content": "Актуальная погода в Краснодар - это 999999 градусы Цельсия",
+      "name": "get_current_weather",
+      "id": "d8f42ef9-aa34-4677-a47a-a0417345120a",
+      "tool_call_id": "QvWgIbzkgT8Lj7ImpcVEO2qZyzf1bu6i"
+    },
+    {
+      "type": "AIMessage",
+      "content": "Извините за путаницу, но похоже, что в данный момент возникла ошибка при попытке получить погоду. Пожалуйста, дайте мне знать, если вы хотите увидеть погоду в другом городе или если вы хотите попробовать еще раз.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 70,
+          "prompt_tokens": 446,
+          "total_tokens": 516,
+          "completion_tokens_details": null,
+          "prompt_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 360
+          }
+        },
+        "model_provider": "openai",
+        "model_name": "qwen2.5-7b-instruct-q4_k_m.gguf",
+        "system_fingerprint": "b8720-d12cc3d1c",
+        "id": "chatcmpl-gUSPh7EeQPh3DL1X5rcoCJm3EpvKL46H",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "id": "lc_run--019d7d4e-9dd8-7ef2-b893-375bcae74daa-0",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 446,
+        "output_tokens": 70,
+        "total_tokens": 516,
+        "input_token_details": {
+          "cache_read": 360
+        },
+        "output_token_details": {}
+      }
+    }
+  ]
+}
+
 {'messages': [HumanMessage(content='какая погода в краснодарчике?', additional_kwargs={}, response_metadata={}, id='846eeb64-2069-47dc-a55d-47710d7c30b8'), AIMessage(content='', additional_kwargs={'refusal': None
     }, response_metadata={'token_usage': {'completion_tokens': 37, 'prompt_tokens': 234, 'total_tokens': 271, 'completion_tokens_details': None, 'prompt_tokens_details': {'audio_tokens': None, 'cached_tokens': 0
         }

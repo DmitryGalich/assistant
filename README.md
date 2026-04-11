@@ -5,5 +5,5 @@
 * [Model runner](model_runner/README.md)
 
 ### Running
-
 Starting model: ```docker compose up -d model_runner```
+Model gui: ```http://localhost:8080/#/```

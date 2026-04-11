@@ -74,8 +74,6 @@ def main():
     model = ChatOpenAI(
         base_url="http://model_runner:8080/v1",
         api_key="not-needed",
-        # model="default", 
-        # temperature=0,
     )
 
     agent = create_agent(
