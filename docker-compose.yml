@@ -21,6 +21,8 @@ services:
     container_name: model_handler
     networks:
       - model_network
+    depends_on:
+      - model_runner
 
 networks:
   model_network:

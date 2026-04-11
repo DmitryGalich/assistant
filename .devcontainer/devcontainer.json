@@ -1,0 +1,22 @@
+{
+	"name": "Existing Docker Compose (Extend)",
+
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+		"docker-compose.yml"
+	],
+
+	"service": "model_handler",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.black-formatter",
+				"ms-python.python",
+				"ms-python.debugpy"
+			]
+    	}
+	},
+
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+}
