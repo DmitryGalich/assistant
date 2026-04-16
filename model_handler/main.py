@@ -83,7 +83,9 @@ def main():
 
     input_object = {
         "messages": [
-            {"role": "user", "content": "какая погода в краснодарчике?"}
+            # {"role": "user", "content": "какая погода в краснодарчике?"}
+            {"role": "user", "content": "как дела?"}
+
         ]
     }
 
