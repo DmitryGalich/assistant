@@ -1,9 +1,13 @@
 name: assistant
 
 services:
-  model_handler:
-    build: model_handler
-    container_name: model_handler
+  model_runner:
+    build: model_runner
+    container_name: model_runner
+    networks:
+      - model_network
+    ports:
+      - "8080:8080"
     deploy:
       resources:
         reservations:
@@ -11,3 +15,15 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+
+  model_handler:
+    build: model_handler
+    container_name: model_handler
+    networks:
+      - model_network
+    depends_on:
+      - model_runner
+
+networks:
+  model_network:
+    name: model_network

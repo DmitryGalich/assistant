@@ -1,0 +1,25 @@
+    1   /usr/bin/env /usr/local/bin/python /root/.vscode-server/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 38779 -- /workspaces/assistant/model_handler/main.py 
+    2  curl
+    3  apt install curl
+    4  pip install curl
+    5  apt update
+    6  apt install curl
+    7  curl
+    8  curl -f http://localhost:8000/health
+    9  curl -f http://localhost:8080/health
+   10  curl -f http://0.0.0.0:8080/health
+   11  curl -f http://0.0.0.0:8000/health
+   12  curl -f http://0.0.0.0/health
+   13  curl -f http://0.0.0.0:8080/v1/health
+   14  curl -f http://localhost:8080/v1/health
+   15  curl --request POST     --url http://localhost:8080/completion     --header "Content-Type: application/json"     --data '{"prompt": "Building a website can be done in 10 simple steps:","n_predict": 128}'
+   16  curl -x GET http://127.0.0.1/8080
+   17  ping moder_runner
+   18  curl http://model_runner:8080
+   19  # 
+   20  pip install langchain-openai
+   21   cd /workspaces/assistant ; /usr/bin/env /usr/local/bin/python /root/.vscode-server/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 54921 -- /workspaces/assistant/model_handler/main.py 
+   22   cd /workspaces/assistant ; /usr/bin/env /usr/local/bin/python /root/.vscode-server/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 42981 -- /workspaces/assistant/model_handler/main.py 
+   23   cd /workspaces/assistant ; /usr/bin/env /usr/local/bin/python /root/.vscode-server/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 41343 -- /workspaces/assistant/model_handler/main.py 
+   24   cd /workspaces/assistant ; /usr/bin/env /usr/local/bin/python /root/.vscode-server/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 50075 -- /workspaces/assistant/model_handler/main.py 
+   25  history

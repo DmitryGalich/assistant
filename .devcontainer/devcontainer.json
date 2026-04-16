@@ -13,8 +13,7 @@
 			"extensions": [
 				"ms-python.black-formatter",
 				"ms-python.python",
-				"ms-python.debugpy",
-				"zencoderai.zencoder"
+				"ms-python.debugpy"
 			]
     	}
 	},
