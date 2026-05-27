@@ -23,6 +23,29 @@ services:
       - model_network
     depends_on:
       - model_runner
+      - model_data
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: model_data
+    environment:
+      POSTGRES_USER: model_data
+      POSTGRES_PASSWORD: model_data
+      POSTGRES_DB: model_data
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - model_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
 
 networks:
   model_network:
